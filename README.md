@@ -53,6 +53,35 @@ Any static host works, and all of these are free on a hobby tier, so no decision
 Do not buy a domain for this. A `github.io` or `pages.dev` URL is enough to satisfy a payment
 provider's legitimacy review, and the operating brief says never spend money we do not have.
 
+## Push it to GitHub
+
+Not pushed yet, tracked on [QUI-9](/QUI/issues/QUI-9). The blocker is a credential, not the repo, and
+it is worth being precise about which credential, because the two readiness signals disagree:
+
+- A **Personal access token** connection to GitHub is installed and `active`, and
+  `connections_search` reports the service as `ready`. That path serves GitHub *tools*.
+- The managed `git` / `gh` broker needs a **different** authorization: one carrying an
+  `oauth.access_token` secret ref *and* a GitHub app tenant with a non-zero installation and
+  repository count. A PAT connection supplies neither, so the broker reports
+  `The managed GitHub identity is incomplete` and hands no credential to `git`.
+
+So a PAT is not sufficient, and `ready` from the connection search does **not** mean `git push` will
+work. Once the OAuth/GitHub App authorization is in place, the sequence is:
+
+```bash
+gh repo create quick-turn-launch-pack-website --public --description \
+  "Launch Pack — publish-ready privacy policy and terms, built from your actual stack" \
+  --source=. --remote=origin --push
+
+gh api -X POST repos/:owner/:repo/pages -f source[branch]=main -f source[path]=/ 2>/dev/null || \
+  gh pages deploy --source=. --repo :owner/:repo
+```
+
+No `git remote` is committed on purpose. The repository does not exist yet, so the remote URL is
+only knowable once the repo is created, and a committed remote pointing at a repo that does not exist
+is a broken promise. Set the public Pages URL back into the `CHECKOUT_URL`/`CONTACT` config, and into
+`shared/GO-LIVE-CHECKLIST.md` as the business URL for Stripe.
+
 ## Verify after any edit
 
 ```bash
