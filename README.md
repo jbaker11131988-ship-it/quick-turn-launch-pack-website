@@ -41,11 +41,11 @@ a single value near the top of a script block, and a runtime check that refuses 
 **Until `CHECKOUT_URL` is set, do not advertise the site as a checkout.** It is a live, honest landing
 page that routes to email. The Stripe link is tracked in [QUI-7](/QUI/issues/QUI-7).
 
-## Deploy it for $0
+## How it is hosted (and what else would work)
 
-Any static host works, and all of these are free on a hobby tier, so no decision here is load-bearing:
+Live on **GitHub Pages**, chosen from three free options, so no decision here is load-bearing:
 
-- **GitHub Pages** — Settings → Pages → deploy from branch, root. The push that ships this repo is
+- **GitHub Pages** ← *in use*. Deploy from branch `main`, path `/`. The push that ships this repo is
   the deploy. Zero configuration, zero cost, zero extra accounts.
 - **Cloudflare Pages** — connect the repo, build command empty, output directory `/`.
 - **Netlify** — drag the folder in, or connect the repo. No build command.
@@ -53,34 +53,55 @@ Any static host works, and all of these are free on a hobby tier, so no decision
 Do not buy a domain for this. A `github.io` or `pages.dev` URL is enough to satisfy a payment
 provider's legitimacy review, and the operating brief says never spend money we do not have.
 
-## Push it to GitHub
+## It is live
 
-Not pushed yet, tracked on [QUI-9](/QUI/issues/QUI-9). The blocker is a credential, not the repo, and
-it is worth being precise about which credential, because the two readiness signals disagree:
+**https://jbaker11131988-ship-it.github.io/quick-turn-launch-pack-website/**
 
-- A **Personal access token** connection to GitHub is installed and `active`, and
-  `connections_search` reports the service as `ready`. That path serves GitHub *tools*.
-- The managed `git` / `gh` broker needs a **different** authorization: one carrying an
-  `oauth.access_token` secret ref *and* a GitHub app tenant with a non-zero installation and
-  repository count. A PAT connection supplies neither, so the broker reports
-  `The managed GitHub identity is incomplete` and hands no credential to `git`.
+Deployed 2026-09-27 from `main` on GitHub Pages, free tier, no custom domain. The page is this
+repository served as-is — there is no build step between the commit and the URL.
 
-So a PAT is not sufficient, and `ready` from the connection search does **not** mean `git push` will
-work. Once the OAuth/GitHub App authorization is in place, the sequence is:
+| | |
+|---|---|
+| Repo | `github.com/jbaker11131988-ship-it/quick-turn-launch-pack-website` (public) |
+| Pages source | branch `main`, path `/` |
+| Cost | $0 |
+| Buy button | **degrades to a `mailto:` notice** — `CHECKOUT_URL` is intentionally unset |
+
+### Why the buy button is not a checkout yet
+
+`CHECKOUT_URL` is still empty, and that is the correct state, not an oversight. The Payment Link
+built on [QUI-7](/QUI/issues/QUI-7) is a **test-mode** link on an account this run could not confirm
+is enabled for charges — its credential now returns `unauthorized`, and the last verified read showed
+`charges_enabled: false`. Pointing a live buy button at that link would look like a sale and fail at
+the payment step, in front of the buyer. An honest email notice costs one email; a checkout that
+breaks trust costs the account. Set it the moment [QUI-7](/QUI/issues/QUI-7) reports a real,
+enabled, live-mode link.
+
+### How the push actually happened
+
+Worth recording, because it is the non-obvious part and it cost three heartbeats.
+
+- The board's GitHub **personal access token connection** is installed and `connections_search`
+  correctly reports it `ready`. That path serves GitHub *tools* — and this run exposes none.
+- The managed `git` / `gh` **broker** is a separate authorization that needs an
+  `oauth.access_token` ref *and* a GitHub App tenant with a non-zero installation count. A PAT
+  connection supplies neither, so the broker declines with `The managed GitHub identity is
+  incomplete` and hands `git` no credential. **`ready` from the connection search does not mean
+  `git push` will work.** The `git` wrapper prints that broker warning on every invocation and then
+  carries on unauthenticated.
+- The fix was to bind the board's existing token to this agent as a secret (`access.github_token`),
+  which the board approved. It is fetched on demand into a `600` file in the run's scratch directory
+  and read by a scratch credential helper. **The token is not in the remote URL, not in `.git/config`,
+  not in any commit, and not in any log line** — the committed remote is a clean anonymous
+  `https://github.com/...` URL, so a leaked clone leaks nothing.
+
+To push again, you do not need any of that: the remote is set and tracking is configured.
 
 ```bash
-gh repo create quick-turn-launch-pack-website --public --description \
-  "Launch Pack — publish-ready privacy policy and terms, built from your actual stack" \
-  --source=. --remote=origin --push
-
-gh api -X POST repos/:owner/:repo/pages -f source[branch]=main -f source[path]=/ 2>/dev/null || \
-  gh pages deploy --source=. --repo :owner/:repo
+git push                 # from this directory
 ```
 
-No `git remote` is committed on purpose. The repository does not exist yet, so the remote URL is
-only knowable once the repo is created, and a committed remote pointing at a repo that does not exist
-is a broken promise. Set the public Pages URL back into the `CHECKOUT_URL`/`CONTACT` config, and into
-`shared/GO-LIVE-CHECKLIST.md` as the business URL for Stripe.
+To rebuild Pages after a change, nothing is required — the push *is* the deploy.
 
 ## Verify after any edit
 
