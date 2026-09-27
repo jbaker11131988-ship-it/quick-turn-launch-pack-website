@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Launch Pack — publish-ready privacy policy &amp; terms, built from your stack</title>
+<meta name="description" content="Blocked on legal docs? Send your stack. In 24 hours you get a privacy policy, terms of service, and a data map with every sub-processor, jurisdiction and DPA status. $299, one payment. Not legal advice.">
+<meta name="color-scheme" content="dark light">
+<meta property="og:title" content="Launch Pack — publish-ready privacy policy &amp; terms, built from your stack">
+<meta property="og:description" content="$299, one payment, delivered in 24 hours. Built from your actual data flows, so the documents cannot contradict each other.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>&#128230;</text></svg>">
+
+<style>
+:root{
+  --bg:#0b0d10; --bg2:#111418; --panel:#151a20; --line:#232a33;
+  --ink:#e8edf2; --ink2:#9aa7b4; --ink3:#6b7885;
+  --accent:#5eead4; --accent2:#0d9488; --warn:#fbbf24; --bad:#f87171;
+  --max:70rem;
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#ffffff; --bg2:#f7f9fa; --panel:#ffffff; --line:#dfe5ea;
+    --ink:#111820; --ink2:#4a5763; --ink3:#78848f;
+    --accent:#0f766e; --accent2:#0d9488; --warn:#a16207; --bad:#b91c1c;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.25rem}
+a{color:var(--accent)}
+code,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:saturate(150%) blur(8px);border-bottom:1px solid var(--line);
+}
+header .wrap{display:flex;align-items:center;gap:1rem;height:4rem}
+.brand{font-weight:700;letter-spacing:-.02em;text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:.5rem}
+.brand span{color:var(--accent)}
+nav{margin-left:auto;display:flex;gap:1.25rem;font-size:.92rem}
+nav a{color:var(--ink2);text-decoration:none}
+nav a:hover{color:var(--ink)}
+@media(max-width:720px){nav a:nth-child(n+3){display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:4.5rem 0 3.5rem;border-bottom:1px solid var(--line)}
+h1{
+  font-size:clamp(2rem,5.2vw,3.35rem);line-height:1.08;letter-spacing:-.03em;
+  margin:0 0 1.1rem;max-width:20ch;
+}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{font-size:clamp(1.05rem,2.2vw,1.25rem);color:var(--ink2);max-width:56ch;margin:0 0 1.75rem}
+.price-line{display:flex;align-items:baseline;gap:.75rem;flex-wrap:wrap;margin:0 0 1.75rem}
+.price{font-size:3rem;font-weight:800;letter-spacing:-.04em;line-height:1}
+.price small{font-size:1rem;font-weight:500;color:var(--ink3);letter-spacing:0}
+.cta-row{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
+.cta{
+  display:inline-block;padding:.85rem 1.5rem;border-radius:.6rem;font-weight:650;
+  text-decoration:none;border:1px solid transparent;cursor:pointer;font-size:1rem;
+  transition:transform .08s ease, filter .15s ease;
+}
+.cta:hover{transform:translateY(-1px)}
+.cta.primary{background:var(--accent);color:#04110f}
+@media (prefers-color-scheme: light){.cta.primary{color:#fff}}
+.cta.ghost{border-color:var(--line);color:var(--ink)}
+.cta.ghost:hover{border-color:var(--accent)}
+.fine{font-size:.85rem;color:var(--ink3);margin-top:1rem}
+
+/* ---------- notice ---------- */
+.notice{
+  display:none;margin:1.5rem 0 0;padding:1rem 1.15rem;border-radius:.6rem;
+  border:1px solid color-mix(in srgb,var(--warn) 45%,var(--line));
+  background:color-mix(in srgb,var(--warn) 8%,var(--panel));
+  font-size:.94rem;
+}
+.notice.show{display:block}
+.notice b{color:var(--warn)}
+
+/* ---------- sections ---------- */
+section{padding:3.75rem 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-size:clamp(1.5rem,3.4vw,2.1rem);letter-spacing:-.025em;line-height:1.2;margin:0 0 .85rem}
+h3{font-size:1.05rem;letter-spacing:-.01em;margin:0 0 .4rem}
+.sub{color:var(--ink2);max-width:62ch;margin:0 0 2.25rem}
+.cols{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr))}
+.card{
+  border:1px solid var(--line);border-radius:.7rem;padding:1.25rem;background:var(--panel);
+}
+.card p{margin:.35rem 0 0;color:var(--ink2);font-size:.95rem}
+.tag{
+  display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line));
+  border-radius:99px;padding:.15rem .5rem;margin-bottom:.6rem;
+}
+
+/* ---------- problem list ---------- */
+.symptoms{list-style:none;padding:0;margin:0;display:grid;gap:.6rem;max-width:62ch}
+.symptoms li{padding-left:1.6rem;position:relative;color:var(--ink2)}
+.symptoms li::before{content:"\2192";position:absolute;left:0;color:var(--accent)}
+
+/* ---------- table ---------- */
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:.7rem}
+table{border-collapse:collapse;width:100%;min-width:34rem;font-size:.94rem}
+th,td{text-align:left;padding:.75rem .9rem;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--bg2);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
+tbody tr:last-child td{border-bottom:0}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.us{color:var(--accent);font-weight:650}
+
+/* ---------- proof ---------- */
+.proof{background:var(--bg2);border:1px solid var(--line);border-radius:.7rem;padding:1.25rem;overflow-x:auto}
+.proof pre{margin:0;font-size:.78rem;line-height:1.5;white-space:pre;color:var(--ink2)}
+.proof .hl{color:var(--ink)}
+
+/* ---------- steps ---------- */
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:1.25rem}
+ol.steps li{counter-increment:s;position:relative;padding-left:3rem}
+ol.steps li::before{
+  content:counter(s);position:absolute;left:0;top:.05rem;width:2rem;height:2rem;border-radius:50%;
+  border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));color:var(--accent);
+  display:grid;place-items:center;font-weight:700;font-size:.9rem;
+}
+ol.steps p{margin:.25rem 0 0;color:var(--ink2);max-width:58ch}
+
+/* ---------- boundaries ---------- */
+.bounds{background:var(--bg2)}
+.bounds .cols .card{border-color:color-mix(in srgb,var(--bad) 30%,var(--line))}
+.bounds h3{color:var(--bad)}
+.bounds ul{margin:.5rem 0 0;padding-left:1.1rem;color:var(--ink2);font-size:.93rem}
+.bounds li{margin-bottom:.4rem}
+
+/* ---------- faq ---------- */
+details{border:1px solid var(--line);border-radius:.6rem;padding:.9rem 1.1rem;background:var(--panel);margin-bottom:.6rem}
+summary{cursor:pointer;font-weight:600;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";float:right;color:var(--accent);font-weight:700}
+details[open] summary::after{content:"\2212"}
+details p{margin:.75rem 0 0;color:var(--ink2);font-size:.95rem;max-width:64ch}
+
+/* ---------- guarantee ---------- */
+.guarantee{border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line));border-radius:.7rem;padding:1.5rem;background:var(--panel)}
+.guarantee p{margin:.5rem 0 0;color:var(--ink2);max-width:62ch}
+
+/* ---------- footer ---------- */
+footer{padding:2.5rem 0 3rem;color:var(--ink3);font-size:.88rem}
+footer p{margin:.4rem 0;max-width:70ch}
+footer a{color:var(--ink2)}
+hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">Launch<span>Pack</span></a>
+    <nav>
+      <a href="#what">What you get</a>
+      <a href="#price">Price</a>
+      <a href="#boundaries">Limits</a>
+      <a href="#buy">Buy</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <h1>Publish-ready privacy policy and terms, <em>built from your actual stack</em>.</h1>
+    <p class="lede">
+      You are blocked. App review is pending and the privacy nutrition label will not clear.
+      An enterprise security questionnaire is stuck in a procurement queue. A customer asked
+      how you handle their data and nobody in the company knew the answer.
+    </p>
+    <p class="lede">
+      So you bought a $99 template. It has your logo on it. It is generic. It does not know
+      you run Stripe and PostHog and Vercel and Clerk. It names California and nothing else.
+      Your lawyer would have to rewrite it &mdash; which is the $300&ndash;800 you were trying to avoid.
+    </p>
+    <p class="lede"><strong>We skip the template step and start from your actual product.</strong>
+      Send us your stack. In 24 hours you get a privacy policy, terms of service, and a data map
+      with every sub-processor, jurisdiction and DPA status &mdash; written <em>from</em> your real
+      data flows, so they cannot contradict each other.</p>
+
+    <div class="price-line">
+      <span class="price">$299<small> one payment</small></span>
+      <span class="sub" style="margin:0">Delivered in 24 hours from a complete intake. One revision round included.</span>
+    </div>
+
+    <div class="cta-row">
+      <a class="cta primary" data-cta="buy" href="#buy">Get your Launch Pack</a>
+      <a class="cta ghost" href="#what">See what you get</a>
+    </div>
+    <p class="fine">
+      Not legal advice, not a compliance certificate. No regulated verticals &mdash; health, finance,
+      telecom, children&rsquo;s data. We decline and refund. <a href="#boundaries">Read the limits</a>.
+    </p>
+
+    <div class="notice" id="checkout-notice" role="status">
+      <b>Checkout is not open yet.</b> The Stripe payment link for this offer has not been published.
+      In the meantime you can start the intake and we will hold your slot &mdash;
+      <a href="#" data-cta="intake">send your stack</a> &mdash; or email
+      <a href="#" data-cta="contact">us</a> and we will invoice you directly.
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE PROBLEM ================= -->
+<section>
+  <div class="wrap">
+    <h2>A template cannot know your product. That is the whole problem.</h2>
+    <p class="sub">
+      A privacy policy is only as good as the inventory of data behind it. Generic generators guess.
+      The buyer finds out after paying, and the lawyer still has to rewrite it.
+      We build the inventory first, then write the documents from it.
+    </p>
+    <ul class="symptoms">
+      <li>Your <strong>app store privacy nutrition label</strong> will not clear, because nobody can say accurately which data you collect &mdash; including which vendors count.</li>
+      <li>A <strong>security questionnaire or DPA request</strong> is sitting in a procurement queue and the deal is stalled behind it.</li>
+      <li>You are <strong>EU-facing</strong> and panicking about the cookie banner before launch.</li>
+      <li>You already bought the <strong>$99 template</strong> and it did not unblock you, because it does not know your product.</li>
+      <li>A customer asked <strong>whether you handle data properly</strong>, and nobody in the company knows the answer.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= WHAT YOU GET ================= -->
+<section id="what">
+  <div class="wrap">
+    <h2>What you get</h2>
+    <p class="sub">
+      Five deliverables, in Markdown and publish-ready HTML, drop-in.
+      The first two are built from <em>your</em> product and cannot be downloaded by anyone else.
+    </p>
+    <div class="cols">
+      <div class="card">
+        <span class="tag">01</span>
+        <h3>Data map &amp; sub-processor inventory</h3>
+        <p>Every data category, its purpose, lawful basis, retention period and why &mdash; plus every
+        sub-processor with jurisdiction, DPA status, merchant-of-record status, and the exact file and
+        line the evidence was found in. CSV included, ready to attach to a DPA.</p>
+      </div>
+      <div class="card">
+        <span class="tag">02</span>
+        <h3>Privacy policy</h3>
+        <p>Generated <em>from</em> the data map, so it matches it. US state coverage by statute &mdash;
+        CCPA/CPRA and every other active state law your numbers trigger. GDPR and UK GDPR where your
+        users make it apply. Global Privacy Control, cookie consent, ePrivacy.</p>
+      </div>
+      <div class="card">
+        <span class="tag">03</span>
+        <h3>Terms of service</h3>
+        <p>The clauses that actually vary by business: liability cap scaled to your contract size,
+        IP carve-outs including AI-generated content, indemnification scope, governing law, dispute
+        resolution, and renewal / cancellation / refund terms matched to how you actually charge.</p>
+      </div>
+      <div class="card">
+        <span class="tag">04</span>
+        <h3>Attorney-check list</h3>
+        <p>The specific clauses in <em>your</em> documents that a licensed attorney should review,
+        each with the question behind it. Short, because it is the document you will actually read.</p>
+      </div>
+      <div class="card">
+        <span class="tag">05</span>
+        <h3>Assumptions and limitations</h3>
+        <p>Every value we supplied because you did not give it to us, and what happens if we were
+        wrong. So your attorney is not starting from zero &mdash; they are starting from our list.</p>
+      </div>
+      <div class="card" style="border-style:dashed">
+        <span class="tag" style="color:var(--ink3);border-color:var(--line)">bonus</span>
+        <h3>A free sample first</h3>
+        <p>Not sure? Map <strong>one</strong> of your data flows at no charge so you can judge the
+        work before you pay. That is a sample of this offer, not a second product.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROOF ================= -->
+<section>
+  <div class="wrap">
+    <h2>What the data map actually looks like</h2>
+    <p class="sub">
+      A real extract from a sample delivery. Yours would name <em>your</em> vendors, which is exactly
+      why a template cannot do this job.
+    </p>
+    <div class="proof">
+<pre><span class="hl"># Data Map and Sub-processor Inventory</span>
+
+At a glance
+  9   categories of personal data processed
+  11  sub-processors, processed in US
+  EU/UK GDPR: Yes        US state privacy laws: Yes
+  Sale or sharing for targeted advertising: Yes
+  Cookie consent banner required: Yes
+  AI features: Yes &mdash; anthropic
+
+<span class="hl">Category: Payment</span>
+  What it is      Payment information. Note that full card numbers are collected
+                  by the payment processor directly and never reach the
+                  client's own servers.
+  Why we use it   Taking payment, issuing valid invoices, and meeting
+                  accounting and consumer protection recordkeeping.
+  Lawful basis    Art. 6(1)(b) for processing payment, and Art. 6(1)(c) for
+                  the statutory recordkeeping.
+  Retention       Statutory period for tax and accounting records, typically
+                  7 years; held by the payment processor as well.
+  Reaches         Stripe
+
+<span class="hl">Sub-processor: Clerk</span>
+  Jurisdiction    US (Delaware)
+  DPA status      Yes &mdash; standard contractual clauses available
+  Found at        package.json:14, and analytics.ts:22 (signInWithClerk)</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW ================= -->
+<section>
+  <div class="wrap">
+    <h2>How it works</h2>
+    <p class="sub">Twenty minutes of your time, and we do the rest. You pay before any of it starts.</p>
+    <ol class="steps">
+      <li>
+        <h3>You pay $299, up front</h3>
+        <p>One payment before work starts. No subscription, no retainer, no upsell path.</p>
+      </li>
+      <li>
+        <h3>You complete the intake &mdash; about 20 minutes</h3>
+        <p>Your entity details, your pricing model, and either your repo, a site export, or a paste of
+        your vendor list. If you have none of those, tell us what you run and we will work from that
+        &mdash; the pack is weaker and it will say so.</p>
+      </li>
+      <li>
+        <h3>We read the stack, not a questionnaire template</h3>
+        <p>Where you grant repo or site access, we find the actual data flows and the evidence for
+        each. We do not claim a service is a sub-processor because it is in your lockfile &mdash; a
+        dependency you installed and never called is the most common false positive in this work, and
+        naming it in a published policy costs you credibility with exactly the reader who is checking.</p>
+      </li>
+      <li>
+        <h3>You get the pack in 24 hours</h3>
+        <p>All five deliverables, in Markdown and publish-ready HTML, with a data map as CSV. If any
+        document would state something your intake does not support, the build stops rather than ships
+        a contradiction.</p>
+      </li>
+      <li>
+        <h3>One revision round, 48 hours, included</h3>
+        <p>So is any correction that changes which laws apply to you. That is not a billing line, it is
+        us shipping something wrong.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= PRICE ================= -->
+<section id="price">
+  <div class="wrap">
+    <h2>What it costs, against what it replaces</h2>
+    <p class="sub">
+      We are not the cheapest option. We are the one that ends the block. The market's documented
+      failure mode is that cheap options miss product-specific risk and the buyer finds out after paying.
+    </p>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>Option</th><th>Price</th><th>What you actually get</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>AI draft generator</td><td class="num">from $13</td><td>Generic AI draft, explicitly &ldquo;a strong starting point&rdquo;</td></tr>
+          <tr><td>Template generator</td><td class="num">$59&ndash;99</td><td>Tailored by questionnaire. No product-specific risk analysis</td></tr>
+          <tr><td>SaaS compliance platform</td><td class="num">$0&ndash;30/mo</td><td>Generic, subscription-gated, never looks at your repo</td></tr>
+          <tr><td>Budget flat-fee attorney</td><td class="num">$559</td><td>Attorney-drafted, CCPA + FDBR, 48&ndash;72h, US only</td></tr>
+          <tr><td>Marketplace attorney</td><td class="num">~$1,140</td><td>Real legal analysis. $2,000&ndash;5,000 for a tech startup handling user data</td></tr>
+          <tr>
+            <td class="us"><strong>Launch Pack</strong></td>
+            <td class="num us"><strong>$299</strong></td>
+            <td class="us">Documents built from your actual stack, in 24h, with the attorney-check list. Not legal judgement.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fine">
+      Figures from published pricing and help pages, checked 2026-09-27. The $1,140 marketplace average
+      and the $559 flat-fee bundle are the anchors we are priced against.
+    </p>
+  </div>
+</section>
+
+<!-- ================= BOUNDARIES ================= -->
+<section class="bounds" id="boundaries">
+  <div class="wrap">
+    <h2>What we will not do</h2>
+    <p class="sub">
+      This is a brief requirement, not a disclaimer habit. Every one of these is in the deliverable
+      <em>and</em> in this pitch. Copy that oversells is the first thing that makes an offer indefensible,
+      because the refund request arrives before the second sale does.
+    </p>
+    <div class="cols">
+      <div class="card">
+        <h3>We are not a law firm</h3>
+        <p>This is not legal advice and not a compliance certificate. We do not claim your documents
+        make you compliant, and we do not claim they are safe. If your situation needs a lawyer and
+        not a fast first draft, say so and we will refund and point you at a name.</p>
+      </div>
+      <div class="card">
+        <h3>No regulated verticals</h3>
+        <p>Health, financial services, telecom, and children&rsquo;s data are out of scope. We decline
+        and refund in full rather than improvise. If that is you, reply and we will point you at a
+        name instead of a directory.</p>
+      </div>
+      <div class="card">
+        <h3>We will not guess your entity</h3>
+        <p>If your legal entity name, jurisdiction or address is missing from the intake, we tell you
+        which fields and why we will not guess. A privacy policy with the wrong entity name is worse
+        than one that arrives a day late.</p>
+      </div>
+      <div class="card">
+        <h3>No lockfile false positives</h3>
+        <p>We will not claim a service is a sub-processor because it appears in your dependencies. If
+        you installed it and never called it, it is not collecting your users&rsquo; data and we will
+        not say that it is.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GUARANTEE ================= -->
+<section>
+  <div class="wrap">
+    <div class="guarantee">
+      <h2 style="margin:0">The guarantee</h2>
+      <p><strong>If the pack is not publishable, you get your money back.</strong></p>
+      <p>Concretely: if the two HTML files do not render as clean documents, or the data map contradicts
+      the privacy policy, or a clause contradicts your stated pricing model &mdash; tell us and we refund.
+      We will not argue about it.</p>
+      <p>We would rather lose the sale than be the reason you publish something you did not understand.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section>
+  <div class="wrap">
+    <h2>Questions worth asking</h2>
+
+    <details>
+      <summary>Is $299 really enough for privacy policy and terms of service?</summary>
+      <p>It is enough for a complete, publishable draft scoped to the facts you stated, plus a specific
+      list of what needs counsel. It is not enough for legal judgement, and we do not pretend otherwise.
+      A lawyer writing both documents from a questionnaire runs about $1,140 on the marketplace. What
+      most buyers actually buy from us is the <em>preparation</em> that makes an attorney review cheap
+      and fast &mdash; that review line item, $300&ndash;800, is where the money leaks.</p>
+    </details>
+
+    <details>
+      <summary>How is 24 hours real?</summary>
+      <p>Because the expensive part of legal drafting is not writing sentences, it is establishing the
+      facts. You have already established them: you know your stack, your vendors, your pricing model.
+      We read that, and the documents follow from it. When the intake is incomplete, the pack is
+      weaker and the assumptions section says so.</p>
+    </details>
+
+    <details>
+      <summary>Why is my data map better than a template's?</summary>
+      <p>Because it is about your company. A sub-processor inventory cannot be downloaded by anyone
+      else, because it is not about them. That is the difference between selling a file and selling
+      a result, and it is the reason a $99 template did not unblock you.</p>
+    </details>
+
+    <details>
+      <summary>What if my app store review or a deal is time-critical?</summary>
+      <p>Tell us the deadline in the intake and tell us what is blocking you. That context goes into
+      the deliverable. The attorney-check list is ordered by what is most likely to be contested, so
+      whoever reviews it starts in the right place.</p>
+    </details>
+
+    <details>
+      <summary>What do you need from me?</summary>
+      <p>Twenty minutes and a completed intake, plus either your repo, a site export, or a paste of
+      your vendor list. Repo access gives the strongest result because the evidence is traceable to
+      a file and line. Email or a hosted intake link both work.</p>
+    </details>
+
+    <details>
+      <summary>What happens after I pay?</summary>
+      <p>You get the intake immediately. We confirm receipt the same business day, ask the two or three
+      questions the intake could not resolve, and you have the pack 24 hours after a complete intake.
+      Delivery is a download link plus a plain-text email, because if your legal docs are blocked your
+      email is probably working fine.</p>
+    </details>
+
+    <details>
+      <summary>Can I get a refund?</summary>
+      <p>Yes, if the pack is not publishable, on the terms above. And yes, if it turns out you need a
+      lawyer rather than a fast first draft &mdash; we would rather refund than sell you the wrong thing.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ================= BUY ================= -->
+<section id="buy" style="padding:4rem 0">
+  <div class="wrap">
+    <h2>Get unblocked</h2>
+    <p class="sub">One payment, $299, delivered in 24 hours from a complete intake.</p>
+    <div class="cta-row">
+      <a class="cta primary" data-cta="buy" href="#buy">Pay $299 and start</a>
+      <a class="cta ghost" data-cta="intake" href="#buy">Send your stack first</a>
+    </div>
+    <p class="fine">
+      Prefer email? <a href="#" data-cta="contact">Send us your stack</a> and we will invoice you directly.
+      Want proof before you spend anything? Ask for the free sample and we will map one of your data flows free.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <hr>
+    <p><strong>Launch Pack</strong> &mdash; a productised service from Quick Turn, an AI operator with no
+    legal credentials. Not a law firm. Not legal advice. Not a compliance certificate.</p>
+    <p>This page sets no cookies, loads no third-party scripts, fonts, images or trackers, and makes no
+    network requests after the initial page load. It is the same standard we hold the deliverable to.</p>
+    <p>Regulated verticals &mdash; health, financial services, telecom, children&rsquo;s data &mdash; are
+    declined. Prepaid, refundable if the pack is not publishable.</p>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   CONFIG -- the only two values you need to set. Both live here.
+   Paste them in, save, deploy. No other file needs to change.
+
+   CHECKOUT_URL : your Stripe Payment Link (buy.stripe.com/...).
+                  Leave as-is until it exists; the buy button will show a
+                  notice instead of a dead link rather than taking money.
+   INTAKE_URL   : where the buyer sends their stack. An intake form URL, or
+                  a mailto: address. Same behaviour if unset.
+   CONTACT      : fallback address when neither is set.
+   ===================================================================== */
+var CHECKOUT_URL = "";
+var INTAKE_URL   = "";
+var CONTACT      = "hello@REPLACE-WITH-YOUR-DOMAIN";
+
+(function () {
+  function set(t, v) { return (v || "").trim(); }
+  var checkout = set("", CHECKOUT_URL);
+  var intake   = set("", INTAKE_URL);
+  var contact  = set("", CONTACT);
+  var notice   = document.getElementById("checkout-notice");
+
+  // Fails safe: an unconfigured button explains itself instead of 404-ing
+  // or pretending to take money.
+  function mailto(subject) {
+    var body = "\n\nWhat I run:\n\n" +
+      "(your product, your URL, and the vendors you know about)\n";
+    return "mailto:" + contact +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+  }
+
+  document.querySelectorAll("[data-cta]").forEach(function (el) {
+    var kind = el.getAttribute("data-cta");
+    if (kind === "buy") {
+      if (/^https?:\/\//.test(checkout)) { el.setAttribute("href", checkout); return; }
+      el.setAttribute("href", mailto("Launch Pack — $299"));
+      if (notice) notice.classList.add("show");
+    } else if (kind === "intake") {
+      if (/^https?:\/\//.test(intake) || /^mailto:/.test(intake)) {
+        el.setAttribute("href", intake);
+      } else {
+        el.setAttribute("href", mailto("Launch Pack — free sample / start the intake"));
+      }
+    } else if (kind === "contact") {
+      el.setAttribute("href", mailto("Launch Pack"));
+    }
+  });
+
+  // Never mail to an unconfigured address pretending it works.
+  if (/^REPLACE/.test(contact) && !checkout && !intake) {
+    console.warn("Launch Pack site: CHECKOUT_URL, INTAKE_URL and CONTACT are all unset.");
+  }
+})();
+</script>
+
+</body>
+</html>

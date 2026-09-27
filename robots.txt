@@ -1,0 +1,4 @@
+# The offer page is meant to be indexed and findable.
+# Nothing here is private, and nothing is tracked.
+User-agent: *
+Allow: /
